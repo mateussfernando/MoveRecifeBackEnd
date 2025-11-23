@@ -4,13 +4,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { setAuthRoutes } from './routes/authRoutes';
 // import { setDestinationRoutes } from './routes/destinationRoutes';
-import { setIotRoutes } from './routes/iotRoutes';
+// import { setIotRoutes } from './routes/iotRoutes';
 import { connectDB, disconnectDB } from './config/database';
 
 dotenv.config();
 
 const app = express();
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT || 3001);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 setAuthRoutes(app);
 // setDestinationRoutes(app);
-setIotRoutes(app);
+// setIotRoutes(app);
 
 let server: ReturnType<typeof app.listen> | null = null;
 
